@@ -1,14 +1,12 @@
 // Indicator moves to active list item
 let list = document.querySelectorAll('.list');
-function activeLink(e){
-    console.log('click worked')
-    console.log(e.target.classList.contains ('.list'))
-    if (e.target.classList.contains ('.list')) {return}; 
+list.forEach((item) =>
+item.addEventListener('click', activeLink));
+
+function activeLink(){
     list.forEach((item) =>
     item.classList.remove('active'));
     this.classList.add('active');
-list.forEach((item) =>
-item.addEventListener('click', (e) => activeLink(e)));
 
 // $('li').on('click', function(){
 //     $('li').removeClass('active');
