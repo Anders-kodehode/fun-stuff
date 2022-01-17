@@ -1,0 +1,225 @@
+html {
+    /* Primary color */
+    --main: hsl(0, 0%, 14%);
+    /* Make text not selectable */
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--main);
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+/* Navbar */
+.navigation {
+    background: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 25rem;
+    height: 4.2rem;
+    margin-inline: auto;
+    border-radius: 1rem;
+}
+
+.navigation ul {
+    display: flex;
+    width: 22rem;
+}
+
+.navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 4.4rem;
+    height: 4.4rem;
+    z-index: 1;
+}
+
+.navigation ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.navigation ul li a .icon {
+    color: var(--main);
+    display: block;
+    position: relative;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 4.7rem;
+    transition: 600ms;
+}
+
+.navigation ul li:focus-within a .icon {
+    transform: translateY(32px);
+}
+
+.navigation ul li a .text {
+    color: var(--main);
+    position: absolute;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: .05rem;
+    transition: 600ms;
+    opacity: 0;
+    transform: translateY(-30px);
+}
+
+.navigation ul li:focus-within a .text {
+    opacity: 1;
+    transform: translateY(-20px);
+}
+
+.indicator {
+    background: hsl(249, 49%, 69%);
+    position: absolute;
+    width: 4.4rem;
+    height: 4.4rem;
+    top: 50%;
+    border: 6px solid var(--main);
+    border-radius: 50%;
+    transition: 400ms;
+}
+
+.indicator::before {
+    background: transparent;
+    content: '';
+    position: absolute;
+    width: 1.1rem;
+    height: 1rem;
+    top: 20%;
+    left: -1.25rem;
+    border-bottom-right-radius: 1rem;
+    box-shadow: 1px .5rem 0 0 var(--main);
+}
+
+.indicator::after {
+    background: transparent;
+    content: '';
+    position: absolute;
+    width: 1.1rem;
+    height: 1rem;
+    top: 20%;
+    right: -1.25rem;
+    border-bottom-left-radius: 1rem;
+    box-shadow: -1px .5rem 0 0 var(--main);
+}
+
+.navigation ul li:nth-child(1).active ~ .indicator {
+    transform: translateX(calc(4.4rem * 0));
+}
+
+.navigation ul li:nth-child(2).active ~ .indicator {
+    transform: translateX(calc(4.4rem * 1));
+}
+
+.navigation ul li:nth-child(3).active ~ .indicator {
+    transform: translateX(calc(4.4rem * 2));
+}
+
+.navigation ul li:nth-child(4).active ~ .indicator {
+    transform: translateX(calc(4.4rem * 3));
+}
+
+.navigation ul li:nth-child(5).active ~ .indicator {
+    transform: translateX(calc(4.4rem * 4));
+}
+/* Keypad */
+.keypad {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 10% 50% 10% 50%;
+}
+
+.key {
+    background: linear-gradient(180deg, hsl(0, 0%, 16%), hsl(0, 0%, 13%));
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 4px 4px;
+    padding: 8px 15px;
+    border-radius: 10px;
+    box-shadow: inset 0 -8px 0 8px rgba(0,0,0,0.15), inset 0 -8px 8px rgba(0,0,0,0.25), 0 0 0 2px hsla(0, 0%, 0%, 0.75), 10px 20px 25px hsla(0, 0%, 0%, 0.4); 
+    overflow: hidden;
+}
+
+.key::before {
+    background: linear-gradient(90deg, hsl(0, 0%, 14%), hsl(0, 0%, 29%));
+    content: '';
+    position: absolute;
+    top: 3px;
+    right: 12px;
+    bottom: 14px;
+    left: 4px;
+    border-radius: 10px;
+    box-shadow: -10px -10px 10px hsla(0, 0%, 100%, 0.25), 10px 5px 10px hsla(0, 0%, 0%, 0.15);
+    border-top: 1px solid hsla(0, 0%, 0%, 0.267);
+    border-bottom: 1px solid hsla(0, 0%, 0%, 0.267);
+    border-left: 1px solid hsla(0, 0%, 0%, 0.267);
+}
+
+.key:active {
+    box-shadow: inset 0 -8px 0 8px rgba(0,0,0,0.15), inset 0 -8px 8px rgba(0,0,0,0.15), 0 0 0 1px hsla(0, 0%, 0%, 0.6), 8px 18px 22px hsla(0, 0%, 0%, 0.4);
+    transform: translateY(2px);
+}
+
+/* Long Keys */
+span:nth-child(8) {
+    grid-area: 2/4/4/4;
+    height: 170px;
+}
+span:nth-child(15) {
+    grid-area: 4/4/6/4;
+    height: 170px;
+}
+span:nth-child(16) {
+    grid-area: 5/1/5/3;
+    width: 170px;
+}
+/* Key Letters General */
+span i {
+    color: hsl(0, 0%, 90%);
+    position: relative;
+    font-style: oblique;
+    font-weight: bold;
+}
+/* Key Letters Specific */
+.num,
+.enter {
+    font-size: 13px;
+    font-weight: 700;
+}
+.divide,
+.multiply,
+.minus,
+.number {
+    margin-left: 1.05rem;
+}
+.zero {
+    font-size: 18px;
+    margin-left: 4.1rem;
+}
+.period {
+    font-size: 18px;
+    margin-left: 1.3rem;
+}
+.plus {
+    margin-left: 1.05rem;
+}
