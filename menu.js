@@ -8,15 +8,13 @@ function activeLink(){
     item.classList.remove('active'));
     this.classList.add('active');
 
-// $('li').on('click', function(){
-//     $('li').removeClass('active');
-//     $(this).addClass('active');
-// });
+// --------------------------------------------------
 
 // Play audio on keydown
+
 window.addEventListener('keydown', function(e) {
-    const audio = this.document.querySelector(`audio[data-key=${e.keycode}]`);
-    const key = document.querySelector(`.key[data-key=${e.keycode}]`);
+    const audio = document.querySelector(`audio[data-key="${e.keycode}"]`);
+    const key = document.querySelector(`.key[data-key="${e.keycode}"]`);
     if (!audio) return;
     audio.currentTime = 0;
     audio.play();
