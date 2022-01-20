@@ -7,7 +7,7 @@ function activeLink(){
     list.forEach((item) =>
     item.classList.remove('active'));
     this.classList.add('active');
-
+}
 // --------------------------------------------------
 
 // Play audio on keydown
@@ -20,4 +20,4 @@ window.addEventListener('keydown', function(e) {
     audio.play();
     console.log(key);
     key.classList.add('playing')
-})};
+});
