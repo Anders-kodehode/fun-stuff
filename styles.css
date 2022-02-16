@@ -249,3 +249,9 @@ span i {
 .plus {
     margin-left: 1.05rem;
 }
+
+@media (max-width: 800px) {
+    .keypad {
+        margin: 10% 50% 10% 50%;
+    }
+}
